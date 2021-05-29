@@ -34,17 +34,17 @@ ENV PYSPARK_PYTHON python3
 RUN curl https://jdbc.postgresql.org/download/postgresql-${postgres_version}.jar -o  postgresql-${postgres_version}.jar && \ 
     mv postgresql-${postgres_version}.jar ${SPARK_HOME}/jars
 
-# ENV SQL_URL https://repos.spark-packages.org/maropu/spark-sql-server/0.1.7-spark2.4/spark-sql-server-0.1.7-spark2.4.jar
-# RUN wget ${SQL_URL} && \
-#     mv spark-sql-server-0.1.7-spark2.4.jar ${SPARK_HOME}/jars
+RUN curl https://repos.spark-packages.org/maropu/spark-sql-server/0.1.7-spark2.4/spark-sql-server-0.1.7-spark2.4.jar -o spark-sql-server-0.1.7-spark2.4.jar && \
+    mv spark-sql-server-0.1.7-spark2.4.jar ${SPARK_HOME}/jars
 
-# ENV KAFKA_URL https://repos.spark-packages.org/dibbhatt/kafka-spark-consumer/2.1.0/kafka-spark-consumer-2.1.0.jar
-# RUN wget ${KAFKA_URL} && \
-#     mv kafka-spark-consumer-2.1.0.jar ${SPARK_HOME}/jars
+RUN curl https://repos.spark-packages.org/dibbhatt/kafka-spark-consumer/2.1.0/kafka-spark-consumer-2.1.0.jar -o kafka-spark-consumer-2.1.0.jar && \
+    mv kafka-spark-consumer-2.1.0.jar ${SPARK_HOME}/jars
 
-# ENV MONGO_URL https://repo1.maven.org/maven2/org/mongodb/spark/mongo-spark-connector_2.12/3.0.1/mongo-spark-connector_2.12-3.0.1.jar
-# RUN wget ${MONGO_URL} && \
-#     mv mongo-spark-connector_2.12-3.0.1.jar ${SPARK_HOME}/jars
+RUN curl https://repo1.maven.org/maven2/org/mongodb/spark/mongo-spark-connector_2.12/3.0.1/mongo-spark-connector_2.12-3.0.1.jar -o mongo-spark-connector_2.12-3.0.1.jar && \
+    mv mongo-spark-connector_2.12-3.0.1.jar ${SPARK_HOME}/jars
+
+RUN curl https://repo1.maven.org/maven2/io/delta/delta-core_2.12/1.0.0/delta-core_2.12-1.0.0.jar -o delta-core_2.12-1.0.0.jar && \
+    mv delta-core_2.12-1.0.0.jar ${SPARK_HOME}/jars
 
 # -- Runtime
 
