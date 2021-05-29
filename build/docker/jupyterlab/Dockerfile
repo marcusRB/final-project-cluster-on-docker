@@ -1,4 +1,4 @@
-FROM base
+FROM mrussorb/cluster-base:debian_buster
 LABEL maintainer="MarcusRB <marcusrb@dataschool.tech>"
 
 # -- Layer: Image Metadata
@@ -13,7 +13,7 @@ LABEL org.label-schema.schema-version="1.0"
 
 # -- Layer: Notebooks and data
 
-ADD workspace/ ${SHARED_WORKSPACE}/
+ADD ./workspace/ ${SHARED_WORKSPACE}/
 
 # -- Layer: JupyterLab + Python kernel for PySpark
 
@@ -21,11 +21,11 @@ ARG spark_version
 ARG jupyterlab_version
 ARG scala_kernel_version
 
+# -- New syntax python3 -m pip install <pkg>
 RUN apt-get update -y && \
     apt-get install -y python3-pip python3-dev && \
     pip3 install --upgrade pip && \
-    pip3 install wget==3.2 pyspark==${spark_version} jupyterlab==${jupyterlab_version} \
-    pip3 install sparksql-magic
+    pip3 install wget==3.2 pyspark==${spark_version} jupyterlab==${jupyterlab_version}
 
 # -- Layer: Scala kernel for Spark
 

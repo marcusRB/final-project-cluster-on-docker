@@ -1,6 +1,6 @@
 ARG spark_version
-ARG hadoop_version
-FROM cluster-spark-base:${spark_version}-hadoop${hadoop_version}
+ARG hive_version
+FROM  spark-hive-base:${spark_version}-hive${hive_version}
 LABEL maintainer="MarcusRB <marcusrb@dataschool.tech>"
 
 # -- Layer: Image Metadata
@@ -8,8 +8,8 @@ LABEL maintainer="MarcusRB <marcusrb@dataschool.tech>"
 ARG build_date
 
 LABEL org.label-schema.build-date=${build_date}
-LABEL org.label-schema.name="Final Project data architecture on Docker - Spark-Master Image"
-LABEL org.label-schema.description="Spark-Master image"
+LABEL org.label-schema.name="Final Project data architecture on Docker - Spark-Hive Master Image"
+LABEL org.label-schema.description="Spark-Hive Master image"
 LABEL org.label-schema.url="https://github.com/marcusRB/final-project-cluster-on-docker"
 LABEL org.label-schema.schema-version="1.0"
 
@@ -17,4 +17,4 @@ LABEL org.label-schema.schema-version="1.0"
 
 EXPOSE 8080 7077 10000
 
-CMD bin/spark-class org.apache.spark.deploy.master.Master >> logs/spark-master.out
+CMD bin/spark-class org.apache.spark.deploy.master.Master >> logs/spark-hive-master.out

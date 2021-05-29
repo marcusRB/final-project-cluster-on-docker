@@ -1,5 +1,6 @@
 ARG spark_version
-FROM spark-base:${spark_version}
+ARG hadoop_version
+FROM cluster-spark-base:${spark_version}-hadoop${hadoop_version}
 LABEL maintainer="MarcusRB <marcusrb@dataschool.tech>"
 
 # -- Layer: Image Metadata
@@ -7,8 +8,8 @@ LABEL maintainer="MarcusRB <marcusrb@dataschool.tech>"
 ARG build_date
 
 LABEL org.label-schema.build-date=${build_date}
-LABEL org.label-schema.name="Final Project data architecture on Docker - Spark-worker Image"
-LABEL org.label-schema.description="Spark-worker image"
+LABEL org.label-schema.name="Final Project data architecture on Docker - Spark-Worker Image"
+LABEL org.label-schema.description="Spark-Worker image"
 LABEL org.label-schema.url="https://github.com/marcusRB/final-project-cluster-on-docker"
 LABEL org.label-schema.schema-version="1.0"
 
