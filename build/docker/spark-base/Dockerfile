@@ -46,6 +46,9 @@ RUN curl https://repo1.maven.org/maven2/org/mongodb/spark/mongo-spark-connector_
 RUN curl https://repo1.maven.org/maven2/io/delta/delta-core_2.12/1.0.0/delta-core_2.12-1.0.0.jar -o delta-core_2.12-1.0.0.jar && \
     mv delta-core_2.12-1.0.0.jar ${SPARK_HOME}/jars
 
+RUN curl https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.1.1/spark-sql-kafka-0-10_2.12-3.1.1.jar -o spark-sql-kafka-0-10_2.12-3.1.1.jar && \
+    mv spark-sql-kafka-0-10_2.12-3.1.1.jar  ${SPARK_HOME}/jars
+
 # -- Runtime
 
 WORKDIR ${SPARK_HOME}

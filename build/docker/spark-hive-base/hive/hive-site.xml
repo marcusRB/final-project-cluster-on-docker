@@ -1,0 +1,56 @@
+<configuration>
+  <property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://spark-hive:9083</value>
+  </property>
+  <property>
+    <name>hive.metastore.client.socket.timeout</name>
+    <value>300</value>
+  </property>
+  <property>
+      <name>hive.metastore.warehouse.dir</name>
+      <value>/shared_data/hive/warehouse</value>
+  </property>
+  <property>
+      <name>javax.jdo.option.ConnectionURL</name>
+      <value>jdbc:mysql://mysql:3306/hive_metastore?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false</value>
+      <description>metadata is stored in a MySQL server</description>
+   </property>
+   <property>
+      <name>javax.jdo.option.ConnectionDriverName</name>
+      <value>com.mysql.jdbc.Driver</value>
+      <description>MySQL JDBC driver class</description>
+   </property>
+   <property>
+      <name>javax.jdo.option.ConnectionUserName</name>
+      <value>root</value>
+      <description>user name for connecting to mysql server</description>
+   </property>
+   <property>
+      <name>javax.jdo.option.ConnectionPassword</name>
+      <value>mysecret</value>
+      <description>password for connecting to mysql server</description>
+   </property>
+   <property>
+     <name>hive.metastore.warehouse.dir</name>
+     <value>/shared_data/hive/warehouse</value>
+     <description>location of default database for the warehouse</description>
+   </property>
+  <property>
+    <name>hive.enable.spark.execution.engine</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.exec.stagingdir</name>
+    <value>/tmp/hive/hive-staging</value>
+  </property>
+  <property>
+    <name>hive.metastore.scheama.verification</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hive.metastore.schema.verification.record.version</name>
+    <value>false</value>
+  </property>
+  
+</configuration>

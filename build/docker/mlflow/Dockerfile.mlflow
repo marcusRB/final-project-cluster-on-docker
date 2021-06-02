@@ -1,0 +1,25 @@
+FROM python:3.8
+RUN apt-get update
+
+# install dependencies
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
+
+#RUN mkdir -p /home/mlflow
+COPY conf/mlflow/run_server.sh .
+#/home/mlflow
+RUN chmod +x ./run_server.sh
+#WORKDIR /home/mlflow
+
+ARG MLFLOW_ARTIFACT_DIR
+ENV MLFLOW_ARTIFACT_URI=$MLFLOW_ARTIFACT_DIR
+
+RUN mkdir -p ${MLFLOW_ARTIFACT_URI}
+
+EXPOSE 5000/tcp
+
+ENTRYPOINT ["mlflow", "server", "--host", "0.0.0.0", \
+    "--port", "5000", "--backend-store-uri", \
+    " mysql://root:mysecret@mysql/mlflow", \
+    "--default-artifact-root", "/mlartifacts"]
