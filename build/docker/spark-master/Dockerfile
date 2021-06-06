@@ -13,8 +13,14 @@ LABEL org.label-schema.description="Spark-Master image"
 LABEL org.label-schema.url="https://github.com/marcusRB/final-project-cluster-on-docker"
 LABEL org.label-schema.schema-version="1.0"
 
-# -- Runtime
+# -- Environment
 
-EXPOSE 8080 7077 10000
+ENV SPARK_MASTER_PORT 7077
+ENV SPARK_MASTER_WEBUI_PORT 8080
+ENV SPARK_MASTER_LOG /spark/logs
+
+EXPOSE 8080 7077 6066
+
+# -- Runtime
 
 CMD bin/spark-class org.apache.spark.deploy.master.Master >> logs/spark-master.out
