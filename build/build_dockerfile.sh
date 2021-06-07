@@ -76,7 +76,7 @@ function cleanImages() {
 
     if [[ "${SHOULD_BUILD_JUPYTERLAB}" == "true" ]]
     then
-      docker rmi -f "$(docker images | grep -m 1 'jupyterlab' | awk '{print $3}')"
+      docker rmi -f "$(docker images | grep -m 1 'jupyterlab:${JUPYTERLAB_VERSION}-spark-${SPARK_VERSION}' | awk '{print $3}')"
     fi
 
     if [[ "${SHOULD_BUILD_SPARK}" == "true" ]]
