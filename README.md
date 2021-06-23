@@ -97,8 +97,13 @@ $ docker-compose -f <docker-compose-file>.yml logs
 
 2. Check Spark Master
 
-<hostname_virtual_machine>.8081
+<hostname_virtual_machine>.8080
 
 3. Check Spark Worker.n
 
-<hostname_virtual_machine>.8082
+<hostname_virtual_machine>.8081
+
+4. Start JupyterLab notebooks
+
+Upload notebooks
+> 
