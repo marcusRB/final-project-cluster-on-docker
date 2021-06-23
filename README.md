@@ -106,4 +106,15 @@ $ docker-compose -f <docker-compose-file>.yml logs
 4. Start JupyterLab notebooks
 
 Upload notebooks
-> 
+
+>  from **/workspace/TFM/** directory
+
+5. Check notebooks for theme
+
+- [Porto_Seguros]_PredictionModel_Python_052021_v1_0_0.ipynb
+
+- [Porto_Seguros]_PredictionModel_PySpark_062021_v1_0_0.ipynb
+
+- spark-kafka-consumer.ipynb
+
+- spark-kafka-producer.ipynb
