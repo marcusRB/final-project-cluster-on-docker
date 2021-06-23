@@ -50,3 +50,55 @@ This final work shows a viable data architecture solution to address the fraud d
 - [X] Machine Learning MLflow
 - [ ] Streaming processin (pending)
 - [X] ML codes on Python
+
+
+## Guide available here
+
+### SETUP Git & Docker Compose
+
+1. Clone master repository
+
+```{bash}
+$ git clone https://<repository-url>
+```
+
+2. Check Docker-Compose or install
+
+```{bash}
+$ apt install docker-compose
+```
+
+3. Start main cluster
+
+```{bash}
+$ docker-compose -f docker-compose-cluster-spark-kafka.yml up -d
+```
+
+4. Check Docker containers
+
+```{bash}
+$ docker-compose ps -a
+or
+$ docker ps -a
+```
+
+5. Check Docker logs
+
+```
+$ docker-compose -f <docker-compose-file>.yml logs
+
+```
+
+## Start Spark service
+
+1. Start Spark notebook on JupyterLab
+
+<hostname_virtual_machine>.8888
+
+2. Check Spark Master
+
+<hostname_virtual_machine>.8081
+
+3. Check Spark Worker.n
+
+<hostname_virtual_machine>.8082
