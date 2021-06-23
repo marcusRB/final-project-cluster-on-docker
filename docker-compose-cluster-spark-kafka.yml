@@ -140,7 +140,7 @@ services:
             - 8888:8888
         volumes:
             - shared-workspace:/opt/workspace
-        #    - ./workspace:/opt/workspace
+            - ./workspace:/opt/workspace/TFM
         networks:
             - sparknet
             - kafkanet
