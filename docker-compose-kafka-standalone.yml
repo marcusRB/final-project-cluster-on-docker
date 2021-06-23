@@ -1,0 +1,112 @@
+## VERSION 1.1.0 DOCKER-COMPOSE 
+version: "3.8"
+services:
+
+
+    zookeeper1:
+        image: wurstmeister/zookeeper:3.4.6
+        container_name: zookeeper1
+        ports:
+          - 2181:2181
+        networks:
+          - kafkanet
+
+
+    kafka1:
+        image: wurstmeister/kafka:2.13-2.7.0
+        container_name: kafka1
+        depends_on:
+            - zookeeper1
+        environment:
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_ADVERTISED_PORT: 9092
+            KAFKA_ADVERTISED_HOST_NAME: kafka1
+            KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://localhost:19092
+            #KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://0.0.0.0:19092
+            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+            KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+            KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+            KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+            KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+            KAFKA_CREATE_TOPICS: sales-topic:1:1,fraud-topic:1:1,insurance-raw:8:1
+            KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=2080:/prometheus/kafka-0-8-2.yml
+        command: [start-kafka.sh]
+        expose:
+            - "2080"
+        ports:
+            - 9092:9092
+            - 19092:19092
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./kafka/prometheus:/prometheus
+        networks:
+            - kafkanet
+
+    database:
+        image: postgres:11
+        container_name: postgres
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        ports:
+            - 5432:5432
+        volumes:
+            - ./services/database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+            - ./services/database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+            - postgres:/var/lib/postgresql/data
+        networks:
+            - kafkanet     
+        
+        
+    producer:
+        # build: ./services/producer
+        image: mrussorb/cluster-kafka:producer-pg-v${KAFKA_PROD_VER}
+        #image: staging-producer:latest 
+        container_name: kafka-producer
+        command: sh -c "dockerize -wait tcp://zookeeper1:2181 -wait tcp://kafka1:9092 -wait tcp://database:5432 npm start"
+        depends_on:
+            - zookeeper1
+            - kafka1
+            - database
+        environment:
+            PGHOST: database
+            PGPORT: 5432
+            PGUSER: ${POSTGRES_USER}
+            PGDATABASE: ${POSTGRES_DATABASE}
+            PGPASSWORD: ${POSTGRES_PASSWORD}
+            PRODUCER_PORT: ${PRODUCER_PORT}
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        ports:
+            - ${PRODUCER_PORT}:${PRODUCER_PORT}
+        networks:
+            - kafkanet
+
+
+    consumer:
+        image: mrussorb/cluster-kafka:consumer-pg-v${KAFKA_CONS_VER}
+        # build: ./services/consumer
+        container_name: kafka-consumer
+        command: sh -c "dockerize -wait tcp://zookeeper1:2181 -wait tcp://kafka1:9092 -wait tcp://database:5432 npm start"
+        depends_on:
+            - zookeeper1
+            - kafka1
+            - database
+        environment:
+            PGHOST: database
+            PGPORT: 5432
+            PGUSER: ${POSTGRES_USER}
+            PGDATABASE: ${POSTGRES_DATABASE}
+            PGPASSWORD: ${POSTGRES_PASSWORD}
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        networks:
+            - kafkanet
+
+
+volumes:
+    postgres:
+
+
+networks:
+    kafkanet:
+        #external: true
+        name: kafkanet

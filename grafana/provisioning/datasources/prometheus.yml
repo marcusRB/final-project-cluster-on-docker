@@ -1,0 +1,28 @@
+---
+apiVersion: 1
+
+deleteDatasources:
+- name: Prometheus
+  orgId: 1
+
+datasources:
+- name: Prometheus
+  type: prometheus
+  access: proxy
+  orgId: 1
+  url: http://prometheus:9090
+  isDefault: true
+  version: 1
+  editable: false
+
+- name: PostgreSQL
+  type: PostgreSQL
+  access: proxy
+  orgId: 2
+  url: dev-tfm-uoc.southcentralus.cloudapp.azure.com:5432
+  database: pguser
+  user: pguser
+  password: pgpassword
+  isDefault: false
+  version: 1
+  editable: true
