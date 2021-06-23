@@ -1,6 +1,5 @@
 import os
-path="C:/Users/Melenovich/Desktop/Porto Seguro's Github"
-os.chdir(path+"/Scripts/")
+os.chdir("scripts/")
 # =============================================================================
 # =============================================================================
 
