@@ -1,0 +1,60 @@
+version: '3.8'
+services:
+    
+    postgres_airflow:
+        image: postgres:11
+        environment:
+            - POSTGRES_USER=airflow
+            - POSTGRES_PASSWORD=airflow
+            - POSTGRES_DB=airflow
+        logging:
+            options:
+                max-size: 10m
+                max-file: "3"
+        networks:
+            - airflow
+
+    webserver:
+        image: puckel/docker-airflow:1.10.9
+        restart: always
+        depends_on:
+            - postgres_airflow
+        environment:
+            - LOAD_EX=n
+            - EXECUTOR=Local
+        logging:
+            options:
+                max-size: 10m
+                max-file: "3"
+        volumes:
+            - ./dags:/usr/local/airflow/dags
+            # - ./plugins:/usr/local/airflow/plugins
+        ports:
+            - "8080:8080"
+        expose:
+            - "8080"
+        command: webserver
+        healthcheck:
+            test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
+            interval: 30s
+            timeout: 30s
+            retries: 3
+        networks: 
+            - kafkanet
+            - airflow
+
+    mlflow:                                             # create a MLFlow container
+        build: './docker/mlflow_docker'                        # construct the container along the Dockerfile in this folder
+        container_name: mlflow_container
+        ports:
+            - "5000:5000"                               # expose port
+        command: 'mlflow server --backend-store-uri ./mlflow --host 0.0.0.0 --port 5000'
+        networks: 
+            - airflow
+
+networks:
+    airflow:
+        name: airflow
+        driver: bridge
+    kafkanet:
+        external: true

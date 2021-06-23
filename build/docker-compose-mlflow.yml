@@ -1,0 +1,37 @@
+## VERSION 1.1.0 DOCKER-COMPOSE 
+version: "3.8"
+services:
+
+    mlflow_database:
+        image: postgres:11
+        container_name: mlflow_postgres
+        environment:
+            POSTGRES_USER: ${MLFLOW_POSTGRES_USER}
+            POSTGRES_PASSWORD: ${MLFLOW_POSTGRES_PASSWORD}
+            POSTGRES_DB: ${MLFLOW_POSTGRES_DATABASE}
+        ports:
+            - 5432:5432
+        volumes:
+            # - ./services/database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+            # - ./services/database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+            - postgres:/var/lib/postgresql/data
+        networks:
+            - sparknet
+
+    mlflow:                                             # create a MLFlow container
+        build: './docker/mlflow_docker'                        # construct the container along the Dockerfile in this folder
+        container_name: mlflow_container
+        ports:
+            - "5000:5000"                               # expose port
+        command: 'mlflow server --backend-store-uri ./mlflow --host 0.0.0.0 --port 5000'
+        networks: 
+            - sparknet
+    
+volumes:
+    postgres:
+
+    
+networks:
+    sparknet:
+        name: sparknet
+        external: true

@@ -5,15 +5,16 @@ LABEL maintainer="MarcusRB <marcusrb@dataschool.tech>"
 # -- Layer: Image Metadata
 
 ARG build_date
+ARG build_version
 
-LABEL org.label-schema.build-date=${build_date}
-LABEL org.label-schema.name="Final Project data architecture on Docker - Cluster base Image"
-LABEL org.label-schema.description="Cluster base image"
-LABEL org.label-schema.url="https://github.com/marcusRB/final-project-cluster-on-docker"
-LABEL org.label-schema.schema-version="1.0"
+LABEL org.label-schema.build-date=${build_date} \
+    org.label-schema.name="Final Project data architecture on Docker - Cluster base Image" \
+    org.label-schema.description="Cluster base image" \
+    org.label-schema.url="https://github.com/marcusRB/final-project-cluster-on-docker" \
+    org.label-schema.schema-version=${build_version}
 
 
-# -- Layer: OS + Python + Scala
+# -- Layer: OS + Python + Scala + r-base
 
 ARG scala_version
 ARG shared_workspace=/opt/workspace

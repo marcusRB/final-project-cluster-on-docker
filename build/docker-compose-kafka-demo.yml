@@ -1,0 +1,71 @@
+## VERSION 1.1.0 DOCKER-COMPOSE 
+version: "3.8"
+services:
+
+    kafkfa_database:
+        image: postgres:11
+        container_name: kafka_postgres
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+        ports:
+            - 5433:5432
+        volumes:
+            - ./docker/postgres/database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+            - ./docker/postgres/database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+            - postgres:/var/lib/postgresql/data
+        networks:
+            - kafkanet     
+        
+        
+    producer:
+        # build: ./services/producer
+        image: mrussorb/cluster-kafka:producer-pg-v${KAFKA_PROD_VER}
+        container_name: kafka-producer
+        command: sh -c "dockerize -wait tcp://zookeeper:2181 -wait tcp://broker:29092 -wait tcp://database:5432 npm start"
+        depends_on:
+            #- zookeeper
+            #- kafka
+            - kafkfa_database
+        environment:
+            PGHOST: database
+            PGPORT: 5432
+            PGUSER: ${POSTGRES_USER}
+            PGDATABASE: ${POSTGRES_DATABASE}
+            PGPASSWORD: ${POSTGRES_PASSWORD}
+            PRODUCER_PORT: ${PRODUCER_PORT}
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        ports:
+            - ${PRODUCER_PORT}:${PRODUCER_PORT}
+        networks:
+            - kafkanet
+
+
+    consumer:
+        image: mrussorb/cluster-kafka:consumer-pg-v${KAFKA_CONS_VER}
+        container_name: kafka-consumer
+        command: sh -c "dockerize -wait tcp://zookeeper:2181 -wait tcp://broker:29092 -wait tcp://database:5432 npm start"
+        depends_on:
+            #- zookeeper
+            #- kafka
+            - kafkfa_database
+        environment:
+            PGHOST: kafkfa_database
+            PGPORT: 5432
+            PGUSER: ${POSTGRES_USER}
+            PGDATABASE: ${POSTGRES_DATABASE}
+            PGPASSWORD: ${POSTGRES_PASSWORD}
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        networks:
+            - kafkanet
+
+
+volumes:
+    postgres:
+
+
+networks:
+    kafkanet:
+        external: true
+        #name: kafkanet

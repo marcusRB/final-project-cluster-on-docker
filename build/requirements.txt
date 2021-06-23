@@ -1,0 +1,14 @@
+# version updated june 2021
+numpy==1.20.0
+matplotlib==3.4.2
+seaborn==0.11.1
+scikit-learn==0.24.2
+#sparksql-magic==0.0.3
+pymongo==3.11.4
+#kafka-python==2.0.2
+SQLAlchemy==1.4.17
+#psycopg2==2.8.6
+psycopg2-binary
+confluent_kafka==1.7.0
+mlflow==1.17.0
+faust==1.10.4
