@@ -118,3 +118,19 @@ Upload notebooks
 - spark-kafka-consumer.ipynb
 
 - spark-kafka-producer.ipynb
+
+
+## Start Kafka by Confluent
+
+1. Start Docker-Compose
+
+```
+$ docker-compose -f docker-compose-confluent-kafka.yml up -d
+```
+
+2. Start Control Center
+
+<vm-hostname>:9021
+
+- broker:29092
+- <vm-hostname>:9092
