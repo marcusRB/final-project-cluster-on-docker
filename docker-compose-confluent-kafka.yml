@@ -256,8 +256,7 @@ services:
             - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
         depends_on:
             - "zookeeper"
-            - "kafka1"
-            - "kafka2"
+            - "broker"
         networks:
             - kafkanet
 
