@@ -14,15 +14,3 @@ datasources:
   isDefault: true
   version: 1
   editable: false
-
-- name: PostgreSQL
-  type: PostgreSQL
-  access: proxy
-  orgId: 2
-  url: dev-tfm-uoc.southcentralus.cloudapp.azure.com:5432
-  database: pguser
-  user: pguser
-  password: pgpassword
-  isDefault: false
-  version: 1
-  editable: true
