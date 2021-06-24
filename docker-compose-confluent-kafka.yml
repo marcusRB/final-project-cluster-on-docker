@@ -1,4 +1,7 @@
-## VERSION 1.0.0 Confluent Standalone DOCKER-COMPOSE DEV
+## VERSION 1.0.0 Confluent Standalone DOCKER-COMPOSE envPRO
+# - Kafka by Confluent
+# - Grafana & Prometheus
+########################################
 version: "3.8"
 services:
 
@@ -47,6 +50,7 @@ services:
             CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
             CONFLUENT_METRICS_ENABLE: 'true'
             CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+            KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.15.0.jar=2080:/prometheus/kafka-2_0_0.yml
 
     # Automatically creates required kafka topics if they were not created.
     kafka-create-topics:
@@ -227,7 +231,41 @@ services:
             KAFKA_REST_LISTENERS: "http://0.0.0.0:28082"
             KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:28081'
 
+    grafana:
+        image: grafana/grafana:7.5.5
+        container_name: grafana
+        expose:
+            - "3000"
+        ports:
+            - 3000:3000
+        environment:
+            - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+        volumes:
+            - ./grafana/provisioning/:/etc/grafana/provisioning/
+            - ./grafana/provisioning/datasources/datasource.js:/etc/extra-config/grafana
+        networks:
+            - kafkanet
+            - mongodbnet
+
+    prometheus:
+        image: prom/prometheus:v2.8.1
+        container_name: prometheus
+        expose:
+            - "9090"
+        volumes:
+            - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+        depends_on:
+            - "zookeeper"
+            - "kafka1"
+            - "kafka2"
+        networks:
+            - kafkanet
+
+
 networks:
     kafkanet:
         name : kafkanet
+        driver: bridge
+    mongodbnet:
+        name: mongodbnet
         driver: bridge
