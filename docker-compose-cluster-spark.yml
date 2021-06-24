@@ -1,0 +1,117 @@
+## VERSION 1.1.0 DOCKER-COMPOSE 
+version: "3.8"
+services:
+
+    jupyterlab:
+        image: mrussorb/cluster-jupyterlab:${JUPYTERLAB_TAG_VERSION}
+        container_name: jupyterlab
+        ports:
+            - 8888:8888
+        volumes:
+            - shared-workspace:/opt/workspace
+            - ./workspace:/opt/workspace/TFM
+        networks:
+            - sparknet
+            - kafkanet
+
+    spark-master:
+        image: mrussorb/cluster-spark-master:${SPARK_MASTER_TAG_VERSION}
+        container_name: spark-master
+        environment:
+            - SPARK_MODE=master
+        expose:
+            - "7077"
+            - "8080"
+            - "4040"
+        ports:
+            - 7077:7077
+            - 8080:8080
+            - 4040:4040
+        volumes:
+            - shared-workspace:/opt/workspace
+        networks: 
+            - sparknet
+            - kafkanet
+                        
+    spark-worker-1:
+        image: mrussorb/cluster-spark-worker:${SPARK_WORKER_TAG_VERSION}
+        container_name: spark-worker-1
+        environment:
+            - SPARK_MODE=worker
+            - SPARK_MASTER_URL=spark://spark:7077
+            - SPARK_WORKER_MEMORY=512m
+            - SPARK_WORKER_CORES=1
+        ports:
+            - 8081:8081
+        volumes:
+            - shared-workspace:/opt/workspace
+        depends_on:
+            - spark-master
+        networks:
+            - sparknet
+            - kafkanet
+
+    spark-worker-2:
+        image: mrussorb/cluster-spark-worker:${SPARK_WORKER_TAG_VERSION}
+        container_name: spark-worker-2
+        environment:
+            - SPARK_MODE=worker
+            - SPARK_MASTER_URL=spark://spark:7077
+            - SPARK_WORKER_MEMORY=512m
+            - SPARK_WORKER_CORES=1
+        ports:
+            - 8082:8081
+        volumes:
+            - shared-workspace:/opt/workspace
+        depends_on:
+            - spark-master
+        networks: 
+            - sparknet
+            - kafkanet
+
+    spark-worker-3:
+        image: mrussorb/cluster-spark-worker:${SPARK_WORKER_TAG_VERSION}
+        container_name: spark-worker-3
+        environment:
+            - SPARK_MODE=worker
+            - SPARK_MASTER_URL=spark://spark:7077
+            - SPARK_WORKER_MEMORY=512m
+            - SPARK_WORKER_CORES=1
+        ports:
+            - 8083:8081
+        volumes:
+            - shared-workspace:/opt/workspace
+        depends_on:
+            - spark-master
+        networks: 
+            - sparknet
+            - kafkanet
+
+
+    mlflow:                                             # create a MLFlow container
+        build: './mlflow_docker'                        # construct the container along the Dockerfile in this folder
+        #image: build_mlflow:latest
+        container_name: mlflow_container
+        ports:
+            - "5000:5000"                               # expose port
+        command: 'mlflow server --backend-store-uri ./mlflow --host 0.0.0.0 --port 5000'
+        networks: 
+            - sparknet
+
+
+
+
+volumes:
+    shared-workspace:
+        name: "hadoop-distributed-file-system"
+        driver: local
+   
+    
+networks:
+    kafkanet:
+        external: true
+    sparknet:
+        name: sparknet
+        driver: bridge
+    mongodbnet:
+        external: true

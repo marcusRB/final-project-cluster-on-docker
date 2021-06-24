@@ -156,6 +156,7 @@ services:
             - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
         volumes:
             - ./grafana/provisioning/:/etc/grafana/provisioning/
+            - ./grafana/provisioning/datasources/datasource.js:/etc/extra-config/grafana
         networks:
             - kafkanet
             - mongodbnet
