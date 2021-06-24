@@ -1,0 +1,53 @@
+## VERSION 1.1.0 DOCKER-COMPOSE 
+version: "3.8"
+services:
+
+
+    redis:
+        image: redis
+        container_name: redis
+        restart: always
+        volumes:
+            - redis:/data
+        networks:
+            - supersetnet
+    
+    superset:
+        image: amancevice/superset
+        #image: superset:v0.38.0
+        container_name: superset
+        restart: always
+        depends_on:
+            - redis
+        environment:
+            #MAPBOX_API_KEY: ./superset/superset_config.py/${MAPBOX_API_KEY}
+            ADMIN_USERNAME: $SUPERSET_USERNAME
+            ADMIN_FIRST_NAME: $SUPERSET_FIRSTNAME
+            ADMIN_LAST_NAME: $SUPERSET_LASTNAME
+            ADMIN_EMAIL: $SUPERSET_EMAIL
+            ADMIN_PASSWORD: $SUPERSET_PASSWORD
+        # command: [superset-init]
+        ports:
+            - 8088:8088
+        expose:
+            - "8088"
+        volumes:
+            - ./superset/superset_config.py:/etc/superset/superset_config.py
+        networks:
+            - supersetnet
+            - kafkanet
+            - mongodbnet
+
+
+    volumes:
+        redis:
+    
+    
+networks:
+    kafkanet:
+        external: true
+    supersetnet:
+        name: supersetnet
+        driver: bridge
+    mongodbnet:
+        external: true
