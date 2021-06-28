@@ -185,11 +185,9 @@ services:
         expose:
             - "7077"
             - "8080"
-            - "4040"
         ports:
             - 7077:7077
             - 8080:8080
-            - 4040:4040
         volumes:
             - shared-workspace:/opt/workspace
         networks: 
