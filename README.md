@@ -68,7 +68,7 @@ $ git clone https://<repository-url>
 $ apt install docker-compose
 ```
 
-3. Start main cluster
+3. Start main cluster Kafka and Spark (Simulation)
 
 ```{bash}
 $ docker-compose -f docker-compose-cluster-spark-kafka.yml up -d
