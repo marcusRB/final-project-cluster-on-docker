@@ -138,6 +138,7 @@ services:
         container_name: jupyterlab
         ports:
             - 8888:8888
+            - 4040:4040
         volumes:
             - shared-workspace:/opt/workspace
             - ./workspace:/opt/workspace/TFM
@@ -184,11 +185,9 @@ services:
         expose:
             - "7077"
             - "8080"
-            - "4040"
         ports:
             - 7077:7077
             - 8080:8080
-            - 4040:4040
         volumes:
             - shared-workspace:/opt/workspace
         networks: 
@@ -295,6 +294,20 @@ services:
         networks: 
             - sparknet
 
+    zeppelin:
+        image: apache/zeppelin:0.8.1
+        hostname: zeppelin
+        container_name: zeppelin
+        expose:
+            - "7081"
+        ports:
+            - "7081:8080"
+        volumes:
+            - ./zeppelin/datadrive:/datadrive
+            - ./zeppelin/pyspark-notebooks:/zeppelin/notebook
+            - ./zeppelin/zeppelin-interpreters/interpreter.json:/zeppelin/conf/interpreter.json
+        networks:
+            - sparknet
 
 
 

@@ -1,0 +1,70 @@
+{
+  "paragraphs": [
+    {
+      "text": "%jdbc_interpreter_name\nshow databases",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:04:57.567",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.zeppelin.interpreter.InterpreterNotFoundException: Either no interpreter named jdbc_interpreter_name or it is not binded to this note"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624910572555_1513499653",
+      "id": "20210628-200252_1747418707",
+      "dateCreated": "2021-06-28 20:02:52.555",
+      "status": "ERROR",
+      "errorMessage": "org.apache.zeppelin.interpreter.InterpreterNotFoundException: Either no interpreter named jdbc_interpreter_name or it is not binded to this note\n\tat org.apache.zeppelin.interpreter.InterpreterFactory.getInterpreter(InterpreterFactory.java:101)\n\tat org.apache.zeppelin.notebook.Paragraph.getBindedInterpreter(Paragraph.java:242)\n\tat org.apache.zeppelin.notebook.Paragraph.execute(Paragraph.java:350)\n\tat org.apache.zeppelin.notebook.Note.run(Note.java:683)\n\tat org.apache.zeppelin.socket.NotebookServer.persistAndExecuteSingleParagraph(NotebookServer.java:1881)\n\tat org.apache.zeppelin.socket.NotebookServer.runParagraph(NotebookServer.java:1840)\n\tat org.apache.zeppelin.socket.NotebookServer.onMessage(NotebookServer.java:262)\n\tat org.apache.zeppelin.socket.NotebookSocket.onWebSocketText(NotebookSocket.java:59)\n\tat org.eclipse.jetty.websocket.common.events.JettyListenerEventDriver.onTextMessage(JettyListenerEventDriver.java:189)\n\tat org.eclipse.jetty.websocket.common.message.SimpleTextMessage.messageComplete(SimpleTextMessage.java:69)\n\tat org.eclipse.jetty.websocket.common.events.AbstractEventDriver.appendMessage(AbstractEventDriver.java:66)\n\tat org.eclipse.jetty.websocket.common.events.JettyListenerEventDriver.onTextFrame(JettyListenerEventDriver.java:158)\n\tat org.eclipse.jetty.websocket.common.events.AbstractEventDriver.incomingFrame(AbstractEventDriver.java:162)\n\tat org.eclipse.jetty.websocket.common.WebSocketSession.incomingFrame(WebSocketSession.java:459)\n\tat org.eclipse.jetty.websocket.common.extensions.AbstractExtension.nextIncomingFrame(AbstractExtension.java:182)\n\tat org.eclipse.jetty.websocket.common.extensions.compress.PerMessageDeflateExtension.nextIncomingFrame(PerMessageDeflateExtension.java:105)\n\tat org.eclipse.jetty.websocket.common.extensions.compress.CompressExtension.forwardIncoming(CompressExtension.java:142)\n\tat org.eclipse.jetty.websocket.common.extensions.compress.PerMessageDeflateExtension.incomingFrame(PerMessageDeflateExtension.java:85)\n\tat org.eclipse.jetty.websocket.common.extensions.ExtensionStack.incomingFrame(ExtensionStack.java:220)\n\tat org.eclipse.jetty.websocket.common.Parser.notifyFrame(Parser.java:219)\n\tat org.eclipse.jetty.websocket.common.Parser.parse(Parser.java:244)\n\tat org.eclipse.jetty.websocket.common.io.AbstractWebSocketConnection.readParse(AbstractWebSocketConnection.java:559)\n\tat org.eclipse.jetty.websocket.common.io.AbstractWebSocketConnection.onFillable(AbstractWebSocketConnection.java:390)\n\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)\n\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)\n\tat org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)\n\tat org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1624910697570_-1795243772",
+      "id": "20210628-200457_235126240",
+      "dateCreated": "2021-06-28 20:04:57.570",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "~Trash/Untitled Note 3",
+  "id": "2GB6PQAPN",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "producer:shared_process": [],
+    "sh:shared_process": [],
+    "jdbc:shared_process": [],
+    "consumer:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

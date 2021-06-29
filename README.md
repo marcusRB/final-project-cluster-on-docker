@@ -17,21 +17,21 @@ This final work shows a viable data architecture solution to address the fraud d
 
 - [X] Dockerfile // Docker build
 
-### Microservices
+### Microservices and ports
 
-- [X] Spark
-- [X] Kafka standalone
-- [X] Kafka by Confluent stack
-- [X] MongoDB
-- [X] PostgreSQL
+- [X] Spark -> master 7077, 4044 - workers 8081, 8082, 8083
+- [X] Kafka standalone -> 9091
+- [X] Kafka by Confluent stack -> 19092 / 29092 / 9092
+- [X] MongoDB -> 27017, 27018, 27019
+- [X] PostgreSQL -> 5432
 - [X] NodeJS
-- [X] Grafana
-- [X] Prometheus
+- [X] Grafana -> 3000
+- [X] Prometheus -> 9090
 - [ ] R Studio (pending due version conflict server/livy on Spark 3.1.1)
-- [X] JupyterLab Notebook
-- [ ] Zeppelin (pending due port conflict)
-- [X] MLflow
-- [ ] Superset (pending)
+- [X] JupyterLab Notebook -> 8888
+- [X] Zeppelin Notebook -> 7081
+- [X] MLflow -> 5000
+- [ ] Superset (pending) -> 8088
 
 ## Other databases next release
 
@@ -48,7 +48,7 @@ This final work shows a viable data architecture solution to address the fraud d
 - [X] Porto Seguro's prediction claim on PySpark
 - [X] Porto Seguro's prediction claim on Databricks
 - [X] Machine Learning MLflow
-- [ ] Streaming processin (pending)
+- [ ] Streaming processing (pending)
 - [X] ML codes on Python
 
 
@@ -68,7 +68,7 @@ $ git clone https://<repository-url>
 $ apt install docker-compose
 ```
 
-3. Start main cluster
+3. Start **main cluster** Kafka and Spark (Simulation)
 
 ```{bash}
 $ docker-compose -f docker-compose-cluster-spark-kafka.yml up -d

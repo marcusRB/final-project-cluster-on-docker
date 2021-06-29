@@ -1,0 +1,476 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\nimport pandas as pd\nimport numpy as np\ndf \u003d pd.DataFrame({\u0027Temperature\u0027: np.random.randint(40,70, 50000)})",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:07:03.159",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1624910804983_1033323577",
+      "id": "20210628-200644_666763083",
+      "dateCreated": "2021-06-28 20:06:44.983",
+      "dateStarted": "2021-06-28 20:07:03.183",
+      "dateFinished": "2021-06-28 20:07:15.467",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndf",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:07:20.478",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "       Temperature\n0               56\n1               60\n2               58\n3               45\n4               62\n5               69\n6               41\n7               53\n8               47\n9               42\n10              50\n11              60\n12              43\n13              57\n14              54\n15              53\n16              62\n17              51\n18              45\n19              46\n20              61\n21              57\n22              41\n23              41\n24              53\n25              58\n26              46\n27              43\n28              43\n29              43\n...            ...\n49970           44\n49971           59\n49972           66\n49973           43\n49974           42\n49975           40\n49976           50\n49977           40\n49978           58\n49979           40\n49980           48\n49981           65\n49982           41\n49983           44\n49984           40\n49985           44\n49986           58\n49987           60\n49988           45\n49989           41\n49990           43\n49991           59\n49992           57\n49993           46\n49994           54\n49995           58\n49996           42\n49997           67\n49998           41\n49999           42\n\n[50000 rows x 1 columns]"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624910823159_83761226",
+      "id": "20210628-200703_940547094",
+      "dateCreated": "2021-06-28 20:07:03.159",
+      "dateStarted": "2021-06-28 20:07:20.498",
+      "dateFinished": "2021-06-28 20:07:20.578",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql import SparkSession\n\nspark \u003d SparkSession.\\\n        builder.\\\n        appName(\"pyspark-notebook\").\\\n        master(\"spark://spark-master:7077\").\\\n        config(\"spark.executor.memory\", \"512m\").\\\n        getOrCreate()",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:12:43.826",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911021617_-218832479",
+      "id": "20210628-201021_2033870965",
+      "dateCreated": "2021-06-28 20:10:21.617",
+      "dateStarted": "2021-06-28 20:12:43.853",
+      "dateFinished": "2021-06-28 20:12:44.472",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark.sql import SQLContext\nsqlContext \u003d SQLContext(spark)\nspark_df \u003d sqlContext.createDataFrame(df)",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:13:09.132",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1624910840478_-644983337",
+      "id": "20210628-200720_62052672",
+      "dateCreated": "2021-06-28 20:07:20.478",
+      "dateStarted": "2021-06-28 20:13:09.149",
+      "dateFinished": "2021-06-28 20:13:11.022",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nspark_df",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:13:18.505",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "DataFrame[Temperature: bigint]"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624910950960_-1672610980",
+      "id": "20210628-200910_1095376136",
+      "dateCreated": "2021-06-28 20:09:10.960",
+      "dateStarted": "2021-06-28 20:13:18.526",
+      "dateFinished": "2021-06-28 20:13:18.584",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark.ml.feature import VectorAssembler\nvectorAssembler \u003d VectorAssembler(inputCols \u003d [\u0027Temperature\u0027], outputCol \u003d \u0027Feature\u0027)\nvspark_df \u003d vectorAssembler.transform(spark_df)\n\nvspark_df.show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:15:04.339",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------+-------+\n|Temperature|Feature|\n+-----------+-------+\n|         56| [56.0]|\n|         60| [60.0]|\n|         58| [58.0]|\n|         45| [45.0]|\n|         62| [62.0]|\n|         69| [69.0]|\n|         41| [41.0]|\n|         53| [53.0]|\n|         47| [47.0]|\n|         42| [42.0]|\n|         50| [50.0]|\n|         60| [60.0]|\n|         43| [43.0]|\n|         57| [57.0]|\n|         54| [54.0]|\n|         53| [53.0]|\n|         62| [62.0]|\n|         51| [51.0]|\n|         45| [45.0]|\n|         46| [46.0]|\n+-----------+-------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911198505_-1099132273",
+      "id": "20210628-201318_1320490565",
+      "dateCreated": "2021-06-28 20:13:18.505",
+      "dateStarted": "2021-06-28 20:15:04.365",
+      "dateFinished": "2021-06-28 20:15:05.927",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport matplotlib.pyplot as plt\nfrom pyspark.ml.clustering import KMeans\nfrom pyspark.ml.evaluation import Evaluator",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:16:49.533",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911304339_-1680690609",
+      "id": "20210628-201504_1936812781",
+      "dateCreated": "2021-06-28 20:15:04.339",
+      "dateStarted": "2021-06-28 20:16:49.552",
+      "dateFinished": "2021-06-28 20:16:49.611",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ncost \u003d np.zeros(20)\nfor k in range(2,20):\n    kmeans \u003d KMeans().setK(k).setSeed(1).setFeaturesCol(\"Feature\")\n    model \u003d kmeans.fit(vspark_df.sample(False,0.1, seed\u003d42))\n    cost[k] \u003d model.computeCost(vspark_df) \n    \nfig, ax \u003d plt.subplots(1,1, figsize \u003d(8,6))\nax.plot(range(2,20),cost[2:20])\nax.set_xlabel(\u0027k\u0027)\nax.set_ylabel(\u0027cost\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:17:04.913",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Text(0,0.5,u\u0027cost\u0027)\u003cmatplotlib.figure.Figure at 0x7f082a024ed0\u003e\n"
+          },
+          {
+            "type": "IMG",
+            "data": "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\u003d\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911334964_-522514597",
+      "id": "20210628-201534_1071699102",
+      "dateCreated": "2021-06-28 20:15:34.964",
+      "dateStarted": "2021-06-28 20:17:04.934",
+      "dateFinished": "2021-06-28 20:17:16.212",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.clustering import KMeans\nk \u003d 6\nkmeans \u003d KMeans().setK(k).setSeed(1).setFeaturesCol(\"Feature\")\nmodel \u003d kmeans.fit(vspark_df)\nfrom pyspark.sql.functions import col\ndf_transformed\u003dmodel.transform(vspark_df).select(\u0027Temperature\u0027,\u0027Feature\u0027, col(\u0027prediction\u0027).alias(\u0027label\u0027))\n\ndf_transformed.show(2)",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:17:31.197",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------+-------+-----+\n|Temperature|Feature|label|\n+-----------+-------+-----+\n|         56| [56.0]|    4|\n|         60| [60.0]|    5|\n+-----------+-------+-----+\nonly showing top 2 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911424913_781444917",
+      "id": "20210628-201704_1920137128",
+      "dateCreated": "2021-06-28 20:17:04.913",
+      "dateStarted": "2021-06-28 20:17:31.221",
+      "dateFinished": "2021-06-28 20:17:31.980",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.classification import MultilayerPerceptronClassifier\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\n\n\n# Split the data into train and test\nsplits \u003d df_transformed.randomSplit([0.6, 0.4], 1234)\ntrain \u003d splits[0]\ntest \u003d splits[1]\n\n\nlayers \u003d [1, 6, 8, 6]\n\n\n# create the trainer and set its parameters\ntrainer \u003d MultilayerPerceptronClassifier(featuresCol\u003d\u0027Feature\u0027, labelCol\u003d\u0027label\u0027, maxIter\u003d200, layers\u003dlayers, blockSize\u003d128, seed\u003d1234)\n\n\n# train the model\nmodel_NN \u003d trainer.fit(train)\n\n\n# compute accuracy on the test set\nresult \u003d model_NN.transform(test)\npredictionAndLabels \u003d result.select(\"prediction\", \"label\")\nevaluator \u003d MulticlassClassificationEvaluator(metricName\u003d\"accuracy\")\nprint(\"Test set accuracy \u003d \" + str(evaluator.evaluate(predictionAndLabels)))",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:17:57.200",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Test set accuracy \u003d 0.19620221703\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911451197_-719352622",
+      "id": "20210628-201731_1669297572",
+      "dateCreated": "2021-06-28 20:17:31.197",
+      "dateStarted": "2021-06-28 20:17:57.231",
+      "dateFinished": "2021-06-28 20:18:00.104",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.classification import MultilayerPerceptronClassificationModel\nmodel_NN.save(\"model/\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:19:27.882",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911477200_1528697252",
+      "id": "20210628-201757_1046810632",
+      "dateCreated": "2021-06-28 20:17:57.200",
+      "dateStarted": "2021-06-28 20:19:27.907",
+      "dateFinished": "2021-06-28 20:19:28.573",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql import functions as F\njson_file\u003dfinal_df.select(F.to_json(F.struct([final_df[x] for x in final_df.columns])).alias(\"value\"))\njson_file.show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:21:27.574",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m\u001b[0m\n\u001b[0;31mNameError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-30-15919d410df6\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpyspark\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msql\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mfunctions\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mF\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----\u003e 2\u001b[0;31m \u001b[0mjson_file\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0mfinal_df\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mselect\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mF\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mto_json\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mF\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstruct\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mfinal_df\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mx\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mfinal_df\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0malias\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"value\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0mjson_file\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshow\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mNameError\u001b[0m: name \u0027final_df\u0027 is not defined"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911567882_-1261417246",
+      "id": "20210628-201927_469903443",
+      "dateCreated": "2021-06-28 20:19:27.882",
+      "dateStarted": "2021-06-28 20:21:27.596",
+      "dateFinished": "2021-06-28 20:21:27.680",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-06-28 20:21:27.575",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1624911687574_-649504871",
+      "id": "20210628-202127_1127373303",
+      "dateCreated": "2021-06-28 20:21:27.574",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Streaming analysis with Kafka, InfluxDB and Grafana",
+  "id": "2G8PMERZ8",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "producer:shared_process": [],
+    "sh:shared_process": [],
+    "jdbc:shared_process": [],
+    "spark:shared_process": [],
+    "consumer:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

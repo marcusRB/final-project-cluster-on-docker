@@ -1,0 +1,33 @@
+{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1624910466386_-847435485",
+      "id": "20210628-200106_1660952761",
+      "dateCreated": "2021-06-28 20:01:06.386",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "~Trash/Untitled Note 1",
+  "id": "2GBMMUA9U",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "producer:shared_process": [],
+    "sh:shared_process": [],
+    "jdbc:shared_process": [],
+    "consumer:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
