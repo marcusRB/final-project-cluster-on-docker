@@ -1,0 +1,15 @@
+artifact_uri: file:///opt/workspace/TFM/other_demo/mlflow/mlruns/0/7c3efd96ee79447dbb6f55c97aa8f3fd/artifacts
+end_time: 1624950020625
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 7c3efd96ee79447dbb6f55c97aa8f3fd
+run_uuid: 7c3efd96ee79447dbb6f55c97aa8f3fd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1624950020497
+status: 3
+tags: []
+user_id: root

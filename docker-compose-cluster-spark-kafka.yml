@@ -294,6 +294,20 @@ services:
         networks: 
             - sparknet
 
+    zeppelin:
+        image: apache/zeppelin:0.8.1
+        hostname: zeppelin
+        container_name: zeppelin
+        expose:
+            - "7081"
+        ports:
+            - "7081:8080"
+        volumes:
+            - ./zeppelin/datadrive:/datadrive
+            - ./zeppelin/pyspark-notebooks:/zeppelin/notebook
+            - ./zeppelin/zeppelin-interpreters/interpreter.json:/zeppelin/conf/interpreter.json
+        networks:
+            - sparknet
 
 
 
