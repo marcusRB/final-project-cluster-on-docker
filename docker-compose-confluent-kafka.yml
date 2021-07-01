@@ -50,7 +50,7 @@ services:
             CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
             CONFLUENT_METRICS_ENABLE: 'true'
             CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
-            KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.15.0.jar=2080:/prometheus/kafka-2_0_0.yml
+            #KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=2080:/prometheus/kafka-2_0_0.yml
 
     # Automatically creates required kafka topics if they were not created.
     kafka-create-topics:

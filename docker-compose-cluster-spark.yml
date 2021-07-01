@@ -2,18 +2,6 @@
 version: "3.8"
 services:
 
-    jupyterlab:
-        image: mrussorb/cluster-jupyterlab:${JUPYTERLAB_TAG_VERSION}
-        container_name: jupyterlab
-        ports:
-            - 8888:8888
-        volumes:
-            - shared-workspace:/opt/workspace
-            - ./workspace:/opt/workspace/TFM
-        networks:
-            - sparknet
-            - kafkanet
-
     spark-master:
         image: mrussorb/cluster-spark-master:${SPARK_MASTER_TAG_VERSION}
         container_name: spark-master
@@ -22,11 +10,9 @@ services:
         expose:
             - "7077"
             - "8080"
-            - "4040"
         ports:
             - 7077:7077
             - 8080:8080
-            - 4040:4040
         volumes:
             - shared-workspace:/opt/workspace
         networks: 

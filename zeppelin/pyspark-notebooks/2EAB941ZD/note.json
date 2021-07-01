@@ -3,7 +3,7 @@
     {
       "text": "%sh\npip install kafka-python",
       "user": "anonymous",
-      "dateUpdated": "2021-05-03 15:04:40.204",
+      "dateUpdated": "2021-07-01 11:27:51.181",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -26,7 +26,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Requirement already satisfied (use --upgrade to upgrade): kafka-python in /opt/conda/lib/python2.7/site-packages\nYou are using pip version 8.1.2, however version 21.1.1 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
+            "data": "Collecting kafka-python\n  Downloading https://files.pythonhosted.org/packages/75/68/dcb0db055309f680ab2931a3eeb22d865604b638acf8c914bedf4c1a0c8c/kafka_python-2.0.2-py2.py3-none-any.whl (246kB)\nInstalling collected packages: kafka-python\nSuccessfully installed kafka-python-2.0.2\nYou are using pip version 8.1.2, however version 21.1.3 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
           }
         ]
       },
@@ -34,8 +34,8 @@
       "jobName": "paragraph_1556538860554_-1121550077",
       "id": "20190429-115420_1698791579",
       "dateCreated": "2019-04-29 11:54:20.554",
-      "dateStarted": "2021-05-03 15:04:40.301",
-      "dateFinished": "2021-05-03 15:04:40.655",
+      "dateStarted": "2021-07-01 11:27:51.332",
+      "dateFinished": "2021-07-01 11:27:58.077",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -72,21 +72,6 @@
             "data": "+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\n|_c0|age|        workclass|    education|education-num|      marital-status|        occupation|  relationship|          ethnicity| gender|capital-gain|capital-loss|hours-per-week|  loan|\n+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\n|  0| 39|        State-gov|    Bachelors|           13|       Never-married|      Adm-clerical| Not-in-family|              White|   Male|        2174|           0|            40| \u003c\u003d50K|\n|  1| 50| Self-emp-not-inc|    Bachelors|           13|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|           0|           0|            13| \u003c\u003d50K|\n|  2| 38|          Private|      HS-grad|            9|            Divorced| Handlers-cleaners| Not-in-family|              White|   Male|           0|           0|            40| \u003c\u003d50K|\n|  3| 53|          Private|         11th|            7|  Married-civ-spouse| Handlers-cleaners|       Husband|              Black|   Male|           0|           0|            40| \u003c\u003d50K|\n|  4| 28|          Private|    Bachelors|           13|  Married-civ-spouse|    Prof-specialty|          Wife|              Black| Female|           0|           0|            40| \u003c\u003d50K|\n|  5| 37|          Private|      Masters|           14|  Married-civ-spouse|   Exec-managerial|          Wife|              White| Female|           0|           0|            40| \u003c\u003d50K|\n|  6| 49|          Private|          9th|            5| Married-spouse-a...|     Other-service| Not-in-family|              Black| Female|           0|           0|            16| \u003c\u003d50K|\n|  7| 52| Self-emp-not-inc|      HS-grad|            9|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|           0|           0|            45|  \u003e50K|\n|  8| 31|          Private|      Masters|           14|       Never-married|    Prof-specialty| Not-in-family|              White| Female|       14084|           0|            50|  \u003e50K|\n|  9| 42|          Private|    Bachelors|           13|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|        5178|           0|            40|  \u003e50K|\n| 10| 37|          Private| Some-college|           10|  Married-civ-spouse|   Exec-managerial|       Husband|              Black|   Male|           0|           0|            80|  \u003e50K|\n| 11| 30|        State-gov|    Bachelors|           13|  Married-civ-spouse|    Prof-specialty|       Husband| Asian-Pac-Islander|   Male|           0|           0|            40|  \u003e50K|\n| 12| 23|          Private|    Bachelors|           13|       Never-married|      Adm-clerical|     Own-child|              White| Female|           0|           0|            30| \u003c\u003d50K|\n| 13| 32|          Private|   Assoc-acdm|           12|       Never-married|             Sales| Not-in-family|              Black|   Male|           0|           0|            50| \u003c\u003d50K|\n| 14| 40|          Private|    Assoc-voc|           11|  Married-civ-spouse|      Craft-repair|       Husband| Asian-Pac-Islander|   Male|           0|           0|            40|  \u003e50K|\n| 15| 34|          Private|      7th-8th|            4|  Married-civ-spouse|  Transport-moving|       Husband| Amer-Indian-Eskimo|   Male|           0|           0|            45| \u003c\u003d50K|\n| 16| 25| Self-emp-not-inc|      HS-grad|            9|       Never-married|   Farming-fishing|     Own-child|              White|   Male|           0|           0|            35| \u003c\u003d50K|\n| 17| 32|          Private|      HS-grad|            9|       Never-married| Machine-op-inspct|     Unmarried|              White|   Male|           0|           0|            40| \u003c\u003d50K|\n| 18| 38|          Private|         11th|            7|  Married-civ-spouse|             Sales|       Husband|              White|   Male|           0|           0|            50| \u003c\u003d50K|\n| 19| 43| Self-emp-not-inc|      Masters|           14|            Divorced|   Exec-managerial|     Unmarried|              White| Female|           0|           0|            45|  \u003e50K|\n+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\nonly showing top 20 rows\n\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.18.0.2:4040/jobs/job?id\u003d4",
-            "http://172.18.0.2:4040/jobs/job?id\u003d5",
-            "http://172.18.0.2:4040/jobs/job?id\u003d6",
-            "http://172.18.0.2:4040/jobs/job?id\u003d7"
-          ],
-          "interpreterSettingId": "producer"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1556120282490_1275576273",
@@ -130,9 +115,43 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%consumer.pyspark\nimport json\nfrom pyspark.streaming.kafka import KafkaUtils\nfrom pyspark.streaming import StreamingContext\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)\n\nREDDIT_TOPIC \u003d \"default_topic\"\nKAFKA_BROKERS \u003d \"172.18.0.3:9092,172.18.0.5:9092\"\n\nstream \u003d KafkaUtils.createDirectStream(\n                            ssc, \n                            [REDDIT_TOPIC], \n                            {\"metadata.broker.list\": KAFKA_BROKERS})\n\nstream \u003d stream.map(lambda x: json.loads(x[1]))\nstream \u003d stream.map(lambda x: (x[\"_c0\"], x[\"loan\"]))\n\nstream.pprint()\n\nssc.start()\nssc.awaitTermination()",
+      "text": "%producer.pyspark\nos.environ[\u0027PYSPARK_SUBMIT_ARGS\u0027] \u003d \u0027--packages org.apache.spark:spark-streaming-kafka-0-8-assembly_2.11-2.4.8, org.apache.spark:spark-sql-kafka-0-10_2.11:2.1.0 pyspark-shell\u0027",
       "user": "anonymous",
-      "dateUpdated": "2021-05-03 14:50:03.202",
+      "dateUpdated": "2021-07-01 11:41:24.718",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1625139585766_-47578297",
+      "id": "20210701-113945_1897609505",
+      "dateCreated": "2021-07-01 11:39:45.766",
+      "dateStarted": "2021-07-01 11:41:24.767",
+      "dateFinished": "2021-07-01 11:41:24.882",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%consumer.pyspark\nimport json\nfrom pyspark.streaming.kafka import KafkaUtils\nfrom pyspark.streaming import StreamingContext\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)\n\nTOPIC \u003d \"dev.vm_dev_tfm_uoc.crm_topic\"\nKAFKA_BROKERS \u003d \"broker:29092\"\n\nstream \u003d KafkaUtils.createDirectStream(\n                            ssc, \n                            [TOPIC], \n                            {\"metadata.broker.list\": KAFKA_BROKERS})\n\nstream \u003d stream.map(lambda x: json.loads(x[1]))\nstream \u003d stream.map(lambda x: (x[\"_c0\"], x[\"loan\"]))\n\nstream.pprint()\n\nssc.start()\nssc.awaitTermination()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-01 11:41:27.454",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -155,7 +174,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\n________________________________________________________________________________________________\n\n  Spark Streaming\u0027s Kafka libraries not found in class path. Try one of the following.\n\n  1. Include the Kafka library and its dependencies with in the\n     spark-submit command as\n\n     $ bin/spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8:2.2.1 ...\n\n  2. Download the JAR of the artifact from Maven Central http://search.maven.org/,\n     Group Id \u003d org.apache.spark, Artifact Id \u003d spark-streaming-kafka-0-8-assembly, Version \u003d 2.2.1.\n     Then, include the jar in the spark-submit command as\n\n     $ bin/spark-submit --jars \u003cspark-streaming-kafka-0-8-assembly.jar\u003e ...\n\n________________________________________________________________________________________________\n\n\n\u001b[0;31m\u001b[0m\n\u001b[0;31mTypeError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-4-b5fe6eefd52a\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     17\u001b[0m                             \u001b[0mssc\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m                             \u001b[0;34m[\u001b[0m\u001b[0mREDDIT_TOPIC\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 19\u001b[0;31m                             {\"metadata.broker.list\": KAFKA_BROKERS})\n\u001b[0m\u001b[1;32m     20\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     21\u001b[0m \u001b[0mstream\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;32mlambda\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mjson\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mloads\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/kafka.py\u001b[0m in \u001b[0;36mcreateDirectStream\u001b[0;34m(ssc, topics, kafkaParams, fromOffsets, keyDecoder, valueDecoder, messageHandler)\u001b[0m\n\u001b[1;32m    120\u001b[0m             \u001b[0;32mreturn\u001b[0m \u001b[0mmessageHandler\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mm\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    121\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 122\u001b[0;31m         \u001b[0mhelper\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mKafkaUtils\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_helper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_sc\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    123\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    124\u001b[0m         jfromOffsets \u003d dict([(k._jTopicAndPartition(helper),\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/kafka.py\u001b[0m in \u001b[0;36m_get_helper\u001b[0;34m(sc)\u001b[0m\n\u001b[1;32m    193\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_get_helper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0msc\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    194\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 195\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0msc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jvm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0morg\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mapache\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mspark\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstreaming\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkafka\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mKafkaUtilsPythonHelper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    196\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mTypeError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    197\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0me\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m\u003d\u003d\u001b[0m \u001b[0;34m\"\u0027JavaPackage\u0027 object is not callable\"\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mTypeError\u001b[0m: \u0027JavaPackage\u0027 object is not callable"
+            "data": "\n________________________________________________________________________________________________\n\n  Spark Streaming\u0027s Kafka libraries not found in class path. Try one of the following.\n\n  1. Include the Kafka library and its dependencies with in the\n     spark-submit command as\n\n     $ bin/spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8:2.2.1 ...\n\n  2. Download the JAR of the artifact from Maven Central http://search.maven.org/,\n     Group Id \u003d org.apache.spark, Artifact Id \u003d spark-streaming-kafka-0-8-assembly, Version \u003d 2.2.1.\n     Then, include the jar in the spark-submit command as\n\n     $ bin/spark-submit --jars \u003cspark-streaming-kafka-0-8-assembly.jar\u003e ...\n\n________________________________________________________________________________________________\n\n\n\u001b[0;31m\u001b[0m\n\u001b[0;31mTypeError\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-10-f900d1dfd920\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     17\u001b[0m                             \u001b[0mssc\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m                             \u001b[0;34m[\u001b[0m\u001b[0mTOPIC\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 19\u001b[0;31m                             {\"metadata.broker.list\": KAFKA_BROKERS})\n\u001b[0m\u001b[1;32m     20\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     21\u001b[0m \u001b[0mstream\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;32mlambda\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mjson\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mloads\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/kafka.py\u001b[0m in \u001b[0;36mcreateDirectStream\u001b[0;34m(ssc, topics, kafkaParams, fromOffsets, keyDecoder, valueDecoder, messageHandler)\u001b[0m\n\u001b[1;32m    120\u001b[0m             \u001b[0;32mreturn\u001b[0m \u001b[0mmessageHandler\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mm\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    121\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 122\u001b[0;31m         \u001b[0mhelper\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mKafkaUtils\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_helper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_sc\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    123\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    124\u001b[0m         jfromOffsets \u003d dict([(k._jTopicAndPartition(helper),\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/kafka.py\u001b[0m in \u001b[0;36m_get_helper\u001b[0;34m(sc)\u001b[0m\n\u001b[1;32m    193\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_get_helper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0msc\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    194\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 195\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0msc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jvm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0morg\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mapache\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mspark\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstreaming\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkafka\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mKafkaUtilsPythonHelper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    196\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mTypeError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    197\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0me\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m\u003d\u003d\u001b[0m \u001b[0;34m\"\u0027JavaPackage\u0027 object is not callable\"\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mTypeError\u001b[0m: \u0027JavaPackage\u0027 object is not callable"
           }
         ]
       },
@@ -163,8 +182,8 @@
       "jobName": "paragraph_1556022009133_-1199138898",
       "id": "20190423-122009_873241770",
       "dateCreated": "2019-04-23 12:20:09.133",
-      "dateStarted": "2021-05-03 14:50:03.291",
-      "dateFinished": "2021-05-03 14:50:23.763",
+      "dateStarted": "2021-07-01 11:41:27.484",
+      "dateFinished": "2021-07-01 11:41:27.696",
       "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
@@ -203,7 +222,9 @@
   "noteForms": {},
   "angularObjects": {
     "producer:shared_process": [],
-    "consumer:shared_process": []
+    "sh:shared_process": [],
+    "consumer:shared_process": [],
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false,

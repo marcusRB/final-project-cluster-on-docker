@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+
+    postgres_spark:
+        image: postgres:11
+        container_name: postgres_spark
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        ports:
+            - 15432:5432
+        volumes:
+            - ./services/database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+            - ./services/database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+            # - postgres:/var/lib/postgresql/data
+        networks:
+            - sparknet
+
+    postgres_kafka:
+        image: postgres:11
+        container_name: postgres_kafka
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        ports:
+            - 25432:5432
+        volumes:
+            - ./services/database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+            - ./services/database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+            # - postgres:/var/lib/postgresql/data
+        networks:
+            - kafkanet
+
+networks:
+    mongodbnet:
+        external: true
+        name: mongodbnet
+    kafkanet:
+        external: true
+    sparknet:
+        external: true
+
+# volumes:
+#     postgres:
