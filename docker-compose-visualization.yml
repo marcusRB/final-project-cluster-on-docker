@@ -28,9 +28,9 @@ services:
             ADMIN_PASSWORD: $SUPERSET_PASSWORD
         # command: [superset-init]
         ports:
-            - 8088:8088
+            - 8089:8088
         expose:
-            - "8088"
+            - "8089"
         volumes:
             - ./superset/superset_config.py:/etc/superset/superset_config.py
         networks:
@@ -39,8 +39,8 @@ services:
             - mongodbnet
 
 
-    volumes:
-        redis:
+volumes:
+    redis:
     
     
 networks:
